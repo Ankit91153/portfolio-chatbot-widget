@@ -1,7 +1,7 @@
 {
   "name": "portfolio-chatbot-widget",
   "version": "1.0.0",
-  "description": "",
+  "description": "A modern, embeddable, and fully customizable portfolio chatbot widget for React applications. Features complete dynamic color customization and API integration.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
@@ -12,24 +12,50 @@
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "README.md",
+    "LICENSE"
   ],
   "scripts": {
     "build": "tsup",
     "postbuild": "node inject-css.js",
+    "prepublishOnly": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "react",
+    "chatbot",
+    "widget",
+    "portfolio",
+    "chat",
+    "ui",
+    "component",
+    "typescript",
+    "customizable",
+    "embeddable",
+    "framer-motion",
+    "tailwind"
+  ],
+  "author": "Ankit Kumar Pandey",
+  "license": "MIT",
   "type": "commonjs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ankit91153/portfolio-chatbot-widget.git"
+  },
+  "homepage": "https://github.com/Ankit91153/portfolio-chatbot-widget#readme",
+  "bugs": {
+    "url": "https://github.com/Ankit91153/portfolio-chatbot-widget/issues"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
   "dependencies": {
     "axios": "^1.13.2",
     "clsx": "^2.1.1",
     "framer-motion": "^12.26.2",
     "lucide-react": "^0.562.0",
-    "react": "^19.2.3",
-    "react-dom": "^19.2.3",
     "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {
@@ -39,6 +65,8 @@
     "@types/react-dom": "^19.2.3",
     "autoprefixer": "^10.4.23",
     "postcss": "^8.5.6",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
     "tailwindcss": "^4.1.18",
     "tsup": "^8.5.1",
     "typescript": "^5.9.3"
