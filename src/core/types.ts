@@ -2,32 +2,60 @@ export type ThemeConfig = {
     // Core Layout
     borderRadius?: string;
 
-    // Primary Colors
-    primary?: string;       // Button bg, User bubble bg
+    // Chat Window Container
+    windowBackgroundColor?: string;        // Main chat window background
+    windowBorderColor?: string;            // Chat window border
+    windowShadowColor?: string;            // Chat window shadow
 
-    // Window / Container
-    background?: string;    // Chat window bg (and fallback for others)
-    text?: string;          // Main text color
+    // Header Section
+    headerBackgroundColor?: string;        // Header background
+    headerTextColor?: string;              // Header title text
+    headerBorderColor?: string;            // Header bottom border
+    headerCloseButtonColor?: string;       // Close button (X) color
+    headerCloseButtonHoverColor?: string;  // Close button hover color
 
-    // Header
-    headerBackgroundColor?: string;
-    headerTextColor?: string;
+    // Message Area
+    messageAreaBackgroundColor?: string;   // Messages container background
+    
+    // Bot Messages
+    botMessageBackgroundColor?: string;    // Bot message bubble background
+    botMessageTextColor?: string;          // Bot message text
+    botMessageBorderColor?: string;        // Bot message bubble border (optional)
 
-    // Messages
-    botMessageBackgroundColor?: string;
-    botMessageTextColor?: string;
-    userMessageBackgroundColor?: string;
-    userMessageTextColor?: string;
+    // User Messages  
+    userMessageBackgroundColor?: string;   // User message bubble background
+    userMessageTextColor?: string;         // User message text
+    userMessageBorderColor?: string;       // User message bubble border (optional)
 
-    // Input Area
-    inputBackgroundColor?: string;
-    inputTextColor?: string;
-    inputPlaceholderColor?: string;
-    inputBorderColor?: string;
+    // Input Section
+    inputSectionBackgroundColor?: string;  // Input area background
+    inputSectionBorderColor?: string;      // Input area top border
+    inputBackgroundColor?: string;         // Input field background
+    inputTextColor?: string;               // Input field text
+    inputPlaceholderColor?: string;        // Input placeholder text
+    inputBorderColor?: string;             // Input field border
+    inputFocusBorderColor?: string;        // Input field focus border
+    inputFocusRingColor?: string;          // Input field focus ring
 
-    // Toggle Button
-    buttonBackgroundColor?: string;
-    buttonIconColor?: string;
+    // Send Button
+    sendButtonColor?: string;              // Send button icon color
+    sendButtonHoverColor?: string;         // Send button hover color
+    sendButtonDisabledColor?: string;      // Send button disabled color
+
+    // Chat Toggle Button (floating button)
+    toggleButtonBackgroundColor?: string;  // Chat toggle button background
+    toggleButtonIconColor?: string;        // Chat toggle button icon
+    toggleButtonHoverBackgroundColor?: string; // Toggle button hover background
+    toggleButtonShadowColor?: string;      // Toggle button shadow
+
+    // Typing Indicator
+    typingIndicatorColor?: string;         // Typing dots color
+    typingIndicatorBackgroundColor?: string; // Typing indicator background
+
+    // Scrollbar (optional)
+    scrollbarTrackColor?: string;          // Scrollbar track
+    scrollbarThumbColor?: string;          // Scrollbar thumb
+    scrollbarThumbHoverColor?: string;     // Scrollbar thumb hover
 };
 
 export type PortfolioChatbotConfig = {

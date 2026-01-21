@@ -36,6 +36,22 @@ export const initPortfolioChatbot = (config: PortfolioChatbotConfig) => {
     root.render(<App config={config} />);
 };
 
+// React Component Export for direct use
+export { App as PortfolioChatbot } from "./App";
+
+// Type Exports
+export type { PortfolioChatbotConfig, ThemeConfig } from "./core/types";
+export type { ResolvedTheme } from "./core/theme";
+
+// Theme Helper Exports
+export {
+    createDarkTheme,
+    createLightTheme,
+    createMinimalTheme,
+    createBrandTheme,
+    mergeTheme
+} from "./core/themeHelpers";
+
 // Auto-init if window global is present (optional)
 if (typeof window !== "undefined") {
     (window as any).initPortfolioChatbot = initPortfolioChatbot;

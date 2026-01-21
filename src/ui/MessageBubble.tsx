@@ -23,22 +23,26 @@ export const MessageBubble = ({ message, theme }: MessageBubbleProps) => {
         >
             <div
                 className={cn(
-                    "max-w-[80%] px-4 py-2 rounded-2xl text-sm shadow-sm",
+                    "max-w-[80%] px-4 py-2 text-sm shadow-sm",
                     isUser
                         ? "rounded-br-none"
                         : "rounded-bl-none"
                 )}
-                style={
-                    isUser
-                        ? {
-                            backgroundColor: theme.userMessageBackgroundColor,
-                            color: theme.userMessageTextColor,
-                        }
-                        : {
-                            backgroundColor: theme.botMessageBackgroundColor,
-                            color: theme.botMessageTextColor,
-                        }
-                }
+                style={{
+                    borderRadius: theme.borderRadius,
+                    backgroundColor: isUser 
+                        ? theme.userMessageBackgroundColor 
+                        : theme.botMessageBackgroundColor,
+                    color: isUser 
+                        ? theme.userMessageTextColor 
+                        : theme.botMessageTextColor,
+                    border: `1px solid ${isUser 
+                        ? theme.userMessageBorderColor 
+                        : theme.botMessageBorderColor}`,
+                    ...(isUser 
+                        ? { borderBottomRightRadius: '4px' }
+                        : { borderBottomLeftRadius: '4px' })
+                }}
             >
                 {message.content}
             </div>

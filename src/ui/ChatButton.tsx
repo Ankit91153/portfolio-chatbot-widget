@@ -14,10 +14,18 @@ export const ChatButton = ({ isOpen, toggleOpen, theme }: ChatButtonProps) => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={toggleOpen}
-            className="w-14 h-14 rounded-full shadow-lg flex items-center justify-center cursor-pointer relative"
+            className="w-14 h-14 rounded-full flex items-center justify-center cursor-pointer relative transition-colors"
             style={{
-                backgroundColor: theme.buttonBackgroundColor,
-                color: theme.buttonIconColor,
+                backgroundColor: theme.toggleButtonBackgroundColor,
+                color: theme.toggleButtonIconColor,
+                boxShadow: `0 10px 25px ${theme.toggleButtonShadowColor}`,
+                borderRadius: theme.borderRadius
+            }}
+            onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = theme.toggleButtonHoverBackgroundColor;
+            }}
+            onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = theme.toggleButtonBackgroundColor;
             }}
         >
             <motion.div
