@@ -32,19 +32,31 @@ export const useChatState = (chatId: string, initialWelcomeMessage?: string) => 
         setIsTyping(true);
 
         try {
-            const reply = await sendMessage(chatId, messages, content);
+            // Simplified API call with just chatId and user message
+            const answer: string = await sendMessage(chatId, content);
 
             const botMsg: Message = {
                 id: (Date.now() + 1).toString(),
                 role: "bot",
-                content: reply,
+                content: answer,
                 timestamp: Date.now(),
             };
             setMessages((prev) => [...prev, botMsg]);
+        } catch (error) {
+            console.error("Error adding message:", error);
+            
+            // Add error message
+            const errorMsg: Message = {
+                id: (Date.now() + 1).toString(),
+                role: "bot",
+                content: "I'm sorry, I encountered an error while processing your request. Please try again.",
+                timestamp: Date.now(),
+            };
+            setMessages((prev) => [...prev, errorMsg]);
         } finally {
             setIsTyping(false);
         }
-    }, [chatId, messages]);
+    }, [chatId]);
 
     return {
         isOpen,

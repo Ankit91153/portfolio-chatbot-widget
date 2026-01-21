@@ -66,6 +66,46 @@ const config = {
 };
 ```
 
+## 🔌 API Integration
+
+### Backend API Requirements
+
+The widget sends POST requests to a static API endpoint with this simplified payload:
+
+```javascript
+// Request Format
+{
+  "chat_id": "your-chat-id",
+  "query": "User's question"
+}
+```
+
+### Expected Response Format
+
+Your backend API should return responses in this format:
+
+```javascript
+// Response Format
+{
+  "answer": "The chatbot's response to the user's question"
+}
+```
+
+**Note**: The API can still include a `context` field in the response, but it will be ignored by the widget. Only the `answer` field is used and displayed to users.
+
+### API Endpoint Configuration
+
+The API endpoint is configured statically in the package. To use your own API:
+
+1. Update the `API_BASE_URL` in `src/core/api.ts`
+2. Rebuild the package
+3. Your API should accept POST requests at the configured endpoint
+
+```javascript
+// Example API endpoint configuration
+const API_BASE_URL = "https://your-api-endpoint.com/chat";
+```
+
 ## ⚙️ Configuration Options
 
 ### Basic Configuration
@@ -174,7 +214,7 @@ const config = {
 
 ## 🎨 Theme Examples
 
-### Dark Theme
+## 🎨 Theme Examples
 
 ```javascript
 import { createDarkTheme } from 'portfolio-chatbot-widget';

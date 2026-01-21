@@ -40,7 +40,7 @@ export const initPortfolioChatbot = (config: PortfolioChatbotConfig) => {
 export { App as PortfolioChatbot } from "./App";
 
 // Type Exports
-export type { PortfolioChatbotConfig, ThemeConfig } from "./core/types";
+export type { PortfolioChatbotConfig, ThemeConfig, Message } from "./core/types";
 export type { ResolvedTheme } from "./core/theme";
 
 // Theme Helper Exports

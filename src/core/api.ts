@@ -1,24 +1,37 @@
 import axios from "axios";
-import { Message } from "./types";
 
-const API_BASE_URL = "https://api.example.com"; // Replace with actual backend URL
+// Static API endpoint - not configurable by user
+const API_BASE_URL = "https://your-api-endpoint.com/chat"; // Replace with your actual API endpoint
+
+export interface ApiResponse {
+    answer: string;
+    context: string[];
+}
 
 export const sendMessage = async (
     chatId: string,
-    messages: Message[],
     userMessage: string
 ): Promise<string> => {
     try {
-        // In a real scenario, you'd send the history or just the last message
-        // depending on your backend logic.
-        const response = await axios.post(`${API_BASE_URL}/chat`, {
-            chatId,
-            message: userMessage,
-            history: messages,
+        // Send simplified payload: {chat_id, query}
+        const response = await axios.post(API_BASE_URL, {
+            chat_id: chatId,
+            query: userMessage,
+        }, {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            timeout: 30000, // 30 second timeout
         });
-        return response.data.reply;
+
+        // Expecting response format: {"answer": "...", "context": ["chunk1", "chunk2", ...]}
+        // But we only return the answer, ignoring context
+        const { answer } = response.data;
+        
+        return answer || "I'm sorry, I couldn't generate a response.";
     } catch (error) {
         console.error("Failed to send message:", error);
+        
         // Fallback mock response for demo purposes
         return new Promise((resolve) => {
             setTimeout(() => {
